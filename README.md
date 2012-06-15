@@ -6,7 +6,7 @@ Overview
     ア行→ば イ行→び ウ行→ぶ エ行→べ オ行→ボ をつければいいです
      例)おはようございます→おぼはばよぼうぶごぼざばいびまばすぶ
 [バビ語の使い方 - Yahoo!知恵袋](http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1455806259 "バビ語の使い方 - Yahoo!知恵袋")
-[http://goo.gl/lAHGP]
+(http://goo.gl/lAHGP)
 
 動作は、Python2.7 で確認しています。
 
@@ -16,7 +16,9 @@ Installation
 下のどちらのほうほうでもインストールできます
 
     easy_install babigo
+
 または
+
     pip install babigo
 
 Usage
