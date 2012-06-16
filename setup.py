@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 version = '0.1.0'
-long_description=open('README.md', 'r').read().decode('utf-8')
+long_description=open('README.rst', 'r').read().decode('utf-8')
 
 setup(
     name='babigo',

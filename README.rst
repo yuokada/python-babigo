@@ -37,12 +37,15 @@ Usage
 ::
 
     import babigo
-    babigo = babigo.Babigo(appid='your-appid')
+    babi = babigo.Babigo(appid='your-appid')
     sentence = u'庭には二羽ニワトリがいる。'
-    print babigo.translate_sentence2babigo(sentence) # にびわばにびはばにびわばにびわばとぼりびがばいびるぶ。
+    print babi.translate_sentence2babigo(sentence) # にびわばにびはばにびわばにびわばとぼりびがばいびるぶ。
 
 Changelog
 =========
+0.1.1 (2012-06-16)
+----------------
+- fix bug
 
 0.1.0 (2012-06-16)
 ----------------

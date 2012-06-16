@@ -72,7 +72,7 @@ class Babigo(object):
                 return babi_sentence
             else:
                 return False
-        except Error,e:
+        except VaLueError ,e:
             raise BabigoException(e)
 
     def get_kana_sentence(self, sentence):
