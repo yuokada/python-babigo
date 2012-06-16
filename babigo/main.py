@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import os
+import os.path
 import urllib
 import httplib2
 import ConfigParser as configparser
@@ -17,6 +18,7 @@ class Babigo(object):
 
     def __init__(self, appid=None, cache=None):
         super(Babigo, self).__init__()
+        self.cache = None
         self._read_rcfile()
         if not appid is None:
             self.appid = appid
@@ -28,7 +30,7 @@ class Babigo(object):
         """ read $HOME/.babigorc
         """
         homedir = os.getenv('HOME')
-        rcfile = homedir + '/' + '.babigorc' # don't work on windows
+        rcfile = homedir + os.path.sep + '.babigorc' # don't work on windows
         con = configparser.SafeConfigParser(allow_no_value=True)
         if os.path.exists(rcfile):
             con.read(rcfile)
@@ -72,7 +74,7 @@ class Babigo(object):
                 return babi_sentence
             else:
                 return False
-        except VaLueError ,e:
+        except Exception ,e:
             raise BabigoException(e)
 
     def get_kana_sentence(self, sentence):
