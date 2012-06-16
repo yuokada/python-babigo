@@ -15,8 +15,6 @@ Overview
 Installation
 ============
 
-下のどちらのほうほうでもインストールできます
-
 ::
 
     easy_install babigo
@@ -30,7 +28,7 @@ Installation
 Usage
 =====
 
-事前にYahooJapan　デベロッパーネットワークでアプリケーションIDを取得します。
+事前にYahoo　デベロッパーネットワークでアプリケーションIDを取得します。
 
 `Yahoo!デベロッパーネットワーク <http://developer.yahoo.co.jp/>`_
 
