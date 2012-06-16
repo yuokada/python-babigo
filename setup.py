@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '0.1.2'
-long_description=open('README.md').read() + "\n"
+version = '0.1.0'
+long_description=open('README.md', 'r').read().decode('utf-8')
 
 setup(
     name='babigo',
     version=version,
-    description="babigo translate module",
+    description='babigo translate module',
     long_description=long_description,
     classifiers=[
         'License :: OSI Approved :: BSD License',
