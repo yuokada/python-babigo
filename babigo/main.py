@@ -15,6 +15,8 @@ class BabigoException(Exception):
 class Babigo(object):
     """ Babigo: Babigo Translate Class
     """
+    appid = None
+    cache = None
 
     def __init__(self, appid=None, cache=None):
         super(Babigo, self).__init__()
