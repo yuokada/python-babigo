@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet xmlns="urn:yahoo:jp:jlp:FuriganaService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:yahoo:jp:jlp:FuriganaService http://jlp.yahooapis.jp/FuriganaService/V1/furigana.xsd">
+  <Result>
+    <WordList>
+      <Word>
+        <Surface>頑張っ</Surface>
+        <Furigana>がんばっ</Furigana>
+        <Roman>ganbaxtu</Roman>
+        <SubWordList>
+          <SubWord>
+            <Surface>頑張</Surface>
+            <Furigana>がんば</Furigana>
+            <Roman>ganba</Roman>
+          </SubWord>
+          <SubWord>
+            <Surface>っ</Surface>
+            <Furigana>っ</Furigana>
+            <Roman>xtu</Roman>
+          </SubWord>
+        </SubWordList>
+      </Word>
+      <Word>
+        <Surface>て</Surface>
+        <Furigana>て</Furigana>
+        <Roman>te</Roman>
+      </Word>
+      <Word>
+        <Surface>ください</Surface>
+        <Furigana>ください</Furigana>
+        <Roman>kudasai</Roman>
+      </Word>
+      <Word>
+        <Surface>w</Surface>
+      </Word>
+    </WordList>
+  </Result>
+</ResultSet>
