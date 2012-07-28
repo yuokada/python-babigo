@@ -42,6 +42,11 @@ Usage
 Changelog
 =========
 
+0.1.3 (2012-07-28)
+------------------
+- add unittest
+- add Travis-CI setting
+
 0.1.1 (2012-06-16)
 ------------------
 - fix bug
