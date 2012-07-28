@@ -63,7 +63,7 @@ class Babigo(object):
         entry_point = 'http://jlp.yahooapis.jp/MAService/V1/parse'
         res, content = h.request(entry_point, 'POST', query, headers=headers)
         if res["status"] == '200':
-            psss
+            pass
 
     def translate_sentence2babigo(self, sentence):
         try :
