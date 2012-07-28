@@ -50,3 +50,10 @@ Changelog
 ------------------
 - First release
 
+
+Travis
+======
+
+`Travis CI - Distributed build platform for the open source community <http://travis-ci.org/#!/yuokada/python-babigo>`_
+
+.. img :: https://secure.travis-ci.org/yuokada/python-babigo.png?branch=master
