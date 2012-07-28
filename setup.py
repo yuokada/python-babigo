@@ -23,7 +23,7 @@ setup(
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     zip_safe=False,
-    tests_require = ['nose', 'mock'],
+    tests_require = ['nose', 'mock', 'coverage'],
     install_requires=[
         # -*- Extra requirements: -*-
         'BeautifulSoup',
