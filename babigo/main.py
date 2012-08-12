@@ -7,10 +7,12 @@ import httplib2
 import ConfigParser as configparser
 from BeautifulSoup import BeautifulStoneSoup
 
+
 class BabigoException(Exception):
     """ Babigo Exception Class
     """
     pass
+
 
 class Babigo(object):
     """ Babigo: Babigo Translate Class
@@ -32,12 +34,12 @@ class Babigo(object):
         """ read $HOME/.babigorc
         """
         homedir = os.getenv('HOME')
-        rcfile = homedir + os.path.sep + '.babigorc' # don't work on windows
+        rcfile = homedir + os.path.sep + '.babigorc'  # don't work on windows
         con = configparser.SafeConfigParser(allow_no_value=True)
         if os.path.exists(rcfile):
             con.read(rcfile)
-            self.appid = con.get('SETTINGS','appid')
-            self.cache = con.get('SETTINGS','cache')
+            self.appid = con.get('SETTINGS', 'appid')
+            self.cache = con.get('SETTINGS', 'cache')
         return
 
     ### dead function
@@ -50,16 +52,16 @@ class Babigo(object):
         """
         h = httplib2.Http(self.cache)
         params = {
-            'results' : 'ma,uniq',
-            'uniq_filter' : '9|10',
+            'results': 'ma,uniq',
+            'uniq_filter': '9|10',
             'sentence': sentence.encode('utf-8'),
-            }
+        }
         query = urllib.urlencode(params)
         headers = {
-                'Host': 'jlp.yahooapis.jp',
-                'User-Agent': 'Yahoo AppID: %s' % self.appid,
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': '%d' % len(query),
+            'Host': 'jlp.yahooapis.jp',
+            'User-Agent': 'Yahoo AppID: %s' % self.appid,
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': '%d' % len(query),
         }
 
         entry_point = 'http://jlp.yahooapis.jp/MAService/V1/parse'
@@ -68,7 +70,7 @@ class Babigo(object):
             pass
 
     def translate_sentence2babigo(self, sentence):
-        try :
+        try:
             assert(isinstance(sentence, unicode))
             kana_sentence = self.get_kana_sentence(sentence)
             if kana_sentence:
@@ -76,7 +78,7 @@ class Babigo(object):
                 return babi_sentence
             else:
                 return False
-        except Exception ,e:
+        except Exception, e:
             raise BabigoException(e)
 
     def get_kana_sentence(self, sentence):
@@ -88,14 +90,14 @@ class Babigo(object):
         """
         h = httplib2.Http(self.cache)
         sentence = dict(
-            sentence = sentence.encode('utf-8'),
-            )
+            sentence=sentence.encode('utf-8'),
+        )
         query = urllib.urlencode(sentence)
         headers = {
-                'Host': 'jlp.yahooapis.jp',
-                'User-Agent': 'Yahoo AppID: %s' % self.appid,
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': '%d' % len(query),
+            'Host': 'jlp.yahooapis.jp',
+            'User-Agent': 'Yahoo AppID: %s' % self.appid,
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': '%d' % len(query),
         }
 
         entry_point = 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana'
@@ -112,7 +114,7 @@ class Babigo(object):
         - `content`: Web API Response , format:XML
         """
         soup = BeautifulStoneSoup(content)
-        wlist = soup.find('wordlist') #WordList
+        wlist = soup.find('wordlist')  # WordList
         sentence = ''
         for word in wlist.findAll('word'):
             if word.find('furigana'):
@@ -137,11 +139,11 @@ class Babigo(object):
             u'おこそとのほもよろをごぞどぼぽ',
             # んの扱いと濁音破裂音の扱いってどうなるの？
             # あと小文字の扱いは?
-            ]
-        mother_a = [x  for x in kana[0]]
+        ]
+        mother_a = [x for x in kana[0]]
         mother_i = [x for x in kana[1]]
-        mother_u = [x for  x in  kana[2]]
-        mother_e = [x for  x  in kana[3]]
+        mother_u = [x for x in kana[2]]
+        mother_e = [x for x in kana[3]]
         mother_o = [x for x in kana[4]]
         result = u''
         for c in sentence:
@@ -158,4 +160,3 @@ class Babigo(object):
             else:
                 result += c
         return result
-

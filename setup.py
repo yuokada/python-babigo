@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
-import sys, os
+import sys
+import os
 
 version = '0.1.3'
-long_description=open('README.rst', 'r').read().decode('utf-8')
+long_description = open('README.rst', 'r').read().decode('utf-8')
 
 setup(
     name='babigo',
@@ -14,7 +15,8 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        ], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    ],  # Get strings from
+        # http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords='babigo nlp',
     author='Yukihiro Okada',
     author_email='callistoiv+pypi@gmail.com',
@@ -23,16 +25,15 @@ setup(
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     zip_safe=False,
-    tests_require = ['nose', 'mock', 'coverage'],
+    tests_require=['nose', 'mock', 'coverage'],
     install_requires=[
         # -*- Extra requirements: -*-
         'BeautifulSoup',
         'httplib2',
-        ],
+    ],
     #entry_points={
     # 'console_scripts' : [
     # 'babigo-trans = babigo.translate',
     # ]
     #},
-    )
-
+)
