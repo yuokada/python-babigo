@@ -5,7 +5,7 @@ import os.path
 import urllib
 import httplib2
 import ConfigParser as configparser
-from BeautifulSoup4 import BeautifulStoneSoup
+from bs4 import BeautifulStoneSoup
 
 
 class BabigoException(Exception):
