@@ -3,7 +3,21 @@ import sys
 import os
 
 version = '0.2.0'
-long_description = open('README.rst', 'r').read().decode('utf-8')
+if sys.version_info.major == 3:
+    long_description = open('README.rst', 'r').read()
+    install_requires = [
+        # -*- Extra requirements: -*-
+        'BeautifulSoup4',
+        'httplib2',
+    ]
+else:
+    long_description = open('README.rst', 'r').read().decode('utf-8')
+    install_requires = [
+        # -*- Extra requirements: -*-
+        'BeautifulSoup4',
+        'lxml',
+        'httplib2',
+    ]
 
 setup(
     name='babigo',
@@ -26,11 +40,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     tests_require=['nose', 'mock', 'coverage'],
-    install_requires=[
-        # -*- Extra requirements: -*-
-        'BeautifulSoup4',
-        'httplib2',
-    ],
+    install_requires=install_requires,
     #entry_points={
     # 'console_scripts' : [
     # 'babigo-trans = babigo.translate',
