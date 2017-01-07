@@ -5,7 +5,7 @@ python:
 # command to install dependencies
 # install: pip install "BeautifulSoup==3.2.0" "httplib2==0.7.2"
 install:
-  - pip install BeautifulSoup httplib2
+  - pip install BeautifulSoup4 httplib2
 # command to run tests
 script:
   - python setup.py nosetests
