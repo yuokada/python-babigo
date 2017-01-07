@@ -43,7 +43,7 @@ class Babigo(object):
     def _read_rcfile(self):
         """ read $HOME/.babigorc
         """
-        homedir = os.getenv('HOME')
+        homedir = os.getenv('HOME', default="")
         rcfile = homedir + os.path.sep + '.babigorc'  # don't work on windows
         con = configparser.SafeConfigParser(allow_no_value=True)
         if os.path.exists(rcfile):

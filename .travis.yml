@@ -6,13 +6,13 @@ python:
 # command to install dependencies
 # install: pip install "BeautifulSoup==3.2.0" "httplib2==0.7.2"
 install:
-  - pip install BeautifulSoup4 httplib2
-  - pip install tox
+  - pip install BeautifulSoup4 httplib2 lxml future
+  - pip install tox nose
   - pip install coveralls
 # command to run tests
 script:
   # - python setup.py nosetests
-  - tox
+  - tox -e py
 notifications:
   email: false
 after_success:
