@@ -1,3 +1,4 @@
+sudo: false
 language: python
 python:
   - "2.7"
@@ -6,6 +7,10 @@ python:
 # install: pip install "BeautifulSoup==3.2.0" "httplib2==0.7.2"
 install:
   - pip install BeautifulSoup4 httplib2
+  - pip install tox
 # command to run tests
 script:
-  - python setup.py nosetests
+  # - python setup.py nosetests
+  - tox
+notifications:
+  email: false
