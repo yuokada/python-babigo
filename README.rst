@@ -42,10 +42,6 @@ Usage
 Changelog
 =========
 
-0.2.0 (2016-01-07)
-------------------
-- Require BeautifulSoup4
-
 0.1.3 (2012-07-28)
 ------------------
 - add unittest
