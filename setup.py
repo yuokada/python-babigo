@@ -8,6 +8,7 @@ if sys.version_info.major == 3:
     install_requires = [
         # -*- Extra requirements: -*-
         'BeautifulSoup4',
+        'lxml',
         'httplib2',
         'future',
     ]

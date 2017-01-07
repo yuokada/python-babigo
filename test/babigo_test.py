@@ -1,4 +1,7 @@
 # -*- coding:utf-8 -*-
+from __future__ import unicode_literals
+from future.utils import string_types
+from builtins import str
 from nose.tools import *
 from mock import patch, Mock
 import httplib2
@@ -11,13 +14,14 @@ APPID = 'yuokada'
 CACHE = '/tmp/'
 
 RES = {
-        'status':'200'
-        }
+    'status': '200'
+}
 RES_F = {
-        'status':'400'
-        }
+    'status': '400'
+}
 CONTENT_1 = open(TESTDIR + '/data/result_01.xml').read()
 CONTENT_3 = open(TESTDIR + '/data/result_03.xml').read()
+
 
 class TestBabigo(object):
     """ test class babigo
@@ -55,7 +59,7 @@ class TestBabigo(object):
         TEST_STRING = u'頑張ってくださいw'
         EXPECT = u'がんばってくださいw'
         res = babi.get_kana_sentence(TEST_STRING)
-        ok_(isinstance(res, unicode))
+        ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
 
     @patch.object(httplib2.Http, 'request')
@@ -94,7 +98,7 @@ class TestBabigo(object):
         TEST_STRING = u'おはようございます。'
         EXPECT = u'おぼはばよぼうぶごぼざばいびまばすぶ。'
         res = babi._insert_babi(TEST_STRING)
-        ok_(isinstance(res, unicode))
+        ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
 
     def test__insert_babi_02(self):
@@ -103,5 +107,5 @@ class TestBabigo(object):
         TEST_STRING = u'いいてんきですね。'
         EXPECT = u'いびいびてべんきびでべすぶねべ。'
         res = babi._insert_babi(TEST_STRING)
-        ok_(isinstance(res, unicode))
+        ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
