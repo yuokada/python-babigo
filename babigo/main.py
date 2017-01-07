@@ -1,15 +1,22 @@
 # -*- coding:utf-8 -*-
+from __future__ import unicode_literals
+from future.utils import string_types
+from builtins import str
 import os
 import os.path
 import sys
-import urllib
 import httplib2
 from bs4 import BeautifulSoup
+
+from future.standard_library import install_aliases
+install_aliases()
+from urllib.parse import urlencode
 
 if sys.version_info.major == 3:
     import configparser as configparser
 else:
     import ConfigParser as configparser
+
 
 class BabigoException(Exception):
     """ Babigo Exception Class
@@ -59,7 +66,7 @@ class Babigo(object):
             'uniq_filter': '9|10',
             'sentence': sentence.encode('utf-8'),
         }
-        query = urllib.urlencode(params)
+        query = urlencode(params)
         headers = {
             'Host': 'jlp.yahooapis.jp',
             'User-Agent': 'Yahoo AppID: %s' % self.appid,
@@ -74,14 +81,14 @@ class Babigo(object):
 
     def translate_sentence2babigo(self, sentence):
         try:
-            assert(isinstance(sentence, unicode))
+            assert (isinstance(sentence, string_types))
             kana_sentence = self.get_kana_sentence(sentence)
             if kana_sentence:
                 babi_sentence = self._insert_babi(kana_sentence)
                 return babi_sentence
             else:
                 return False
-        except Exception, e:
+        except Exception as e:
             raise BabigoException(e)
 
     def get_kana_sentence(self, sentence):
@@ -95,7 +102,7 @@ class Babigo(object):
         sentence = dict(
             sentence=sentence.encode('utf-8'),
         )
-        query = urllib.urlencode(sentence)
+        query = urlencode(sentence)
         headers = {
             'Host': 'jlp.yahooapis.jp',
             'User-Agent': 'Yahoo AppID: %s' % self.appid,
@@ -133,7 +140,7 @@ class Babigo(object):
         - `self`:
         - `sentence`:
         """
-        assert(isinstance(sentence, unicode))
+        assert (isinstance(sentence, string_types))
         kana = [
             u'あかさたなはまやらわがざだばぱ',
             u'いきしちにひみりぎじぢびぴ',
