@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys
 import os
 
-version = '0.1.3'
+version = '0.2.0'
 long_description = open('README.rst', 'r').read().decode('utf-8')
 
 setup(
@@ -28,7 +28,7 @@ setup(
     tests_require=['nose', 'mock', 'coverage'],
     install_requires=[
         # -*- Extra requirements: -*-
-        'BeautifulSoup',
+        'BeautifulSoup4',
         'httplib2',
     ],
     #entry_points={
