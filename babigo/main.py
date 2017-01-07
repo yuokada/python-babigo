@@ -1,12 +1,15 @@
 # -*- coding:utf-8 -*-
-
 import os
 import os.path
+import sys
 import urllib
 import httplib2
-import ConfigParser as configparser
-from BeautifulSoup import BeautifulStoneSoup
+from bs4 import BeautifulSoup
 
+if sys.version_info.major == 3:
+    import configparser as configparser
+else:
+    import ConfigParser as configparser
 
 class BabigoException(Exception):
     """ Babigo Exception Class
@@ -113,14 +116,14 @@ class Babigo(object):
         Arguments:
         - `content`: Web API Response , format:XML
         """
-        soup = BeautifulStoneSoup(content)
-        wlist = soup.find('wordlist')  # WordList
+        soup = BeautifulSoup(content, "xml")
+        wlist = soup.find('WordList')  # WordList
         sentence = ''
-        for word in wlist.findAll('word'):
-            if word.find('furigana'):
-                sentence += word.find('furigana').getText()
-            elif word.find('surface'):
-                sentence += word.find('surface').getText()
+        for word in wlist.findAll('Word'):
+            if word.find('Furigana'):
+                sentence += word.find('Furigana').getText()
+            elif word.find('Surface'):
+                sentence += word.find('Surface').getText()
         return sentence
 
     def _insert_babi(self, sentence):
