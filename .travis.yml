@@ -8,9 +8,12 @@ python:
 install:
   - pip install BeautifulSoup4 httplib2
   - pip install tox
+  - pip install coveralls
 # command to run tests
 script:
   # - python setup.py nosetests
   - tox
 notifications:
   email: false
+after_success:
+  - coveralls
