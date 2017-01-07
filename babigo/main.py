@@ -81,8 +81,7 @@ class Babigo(object):
 
     def translate_sentence2babigo(self, sentence):
         try:
-            if sys.version_info.major == 2:
-                assert (isinstance(sentence, string_types))
+            assert (isinstance(sentence, string_types))
             kana_sentence = self.get_kana_sentence(sentence)
             if kana_sentence:
                 babi_sentence = self._insert_babi(kana_sentence)
@@ -141,8 +140,7 @@ class Babigo(object):
         - `self`:
         - `sentence`:
         """
-        if sys.version_info.major == 2:
-            assert (isinstance(sentence, string_types))
+        assert (isinstance(sentence, string_types))
         kana = [
             u'あかさたなはまやらわがざだばぱ',
             u'いきしちにひみりぎじぢびぴ',
