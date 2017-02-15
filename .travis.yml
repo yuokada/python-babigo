@@ -4,8 +4,11 @@ python:
   - "3.5"
 # command to install dependencies
 # install: pip install "BeautifulSoup==3.2.0" "httplib2==0.7.2"
-install: 
+install:
   - pip install BeautifulSoup4 httplib2
+  - pip install pytest pytest-cov
 # command to run tests
-script: 
+script:
   - python setup.py nosetests
+  - python setup.py develop
+  - pytest --cov=babigo
