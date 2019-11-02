@@ -31,6 +31,6 @@ jobs:
     - name: Test with pytest
       run: |
         # pip install pytest
-        # pytest
         pip install nose mock coverage pytest pytest-cov
-        pytest --cov=babigo
+        # pytest --cov=babigo
+        python -m pytest --cov=babigo tests
