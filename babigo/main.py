@@ -142,11 +142,11 @@ class Babigo(object):
         """
         assert (isinstance(sentence, string_types))
         kana = [
-            u'あかさたなはまやらわがざだばぱ',
-            u'いきしちにひみりぎじぢびぴ',
-            u'うくすつぬふむゆるぐずづぶぷ',
-            u'えけせてねへめれげげぜでべぺ',
-            u'おこそとのほもよろをごぞどぼぽ',
+            'あかさたなはまやらわがざだばぱ',
+            'いきしちにひみりぎじぢびぴ',
+            'うくすつぬふむゆるぐずづぶぷ',
+            'えけせてねへめれげげぜでべぺ',
+            'おこそとのほもよろをごぞどぼぽ',
             # んの扱いと濁音破裂音の扱いってどうなるの？
             # あと小文字の扱いは?
         ]
@@ -155,18 +155,18 @@ class Babigo(object):
         mother_u = [x for x in kana[2]]
         mother_e = [x for x in kana[3]]
         mother_o = [x for x in kana[4]]
-        result = u''
+        result = ''
         for c in sentence:
             if c in mother_a:
-                result += c + u'ば'
+                result += c + 'ば'
             elif c in mother_i:
-                result += c + u'び'
+                result += c + 'び'
             elif c in mother_u:
-                result += c + u'ぶ'
+                result += c + 'ぶ'
             elif c in mother_e:
-                result += c + u'べ'
+                result += c + 'べ'
             elif c in mother_o:
-                result += c + u'ぼ'
+                result += c + 'ぼ'
             else:
                 result += c
         return result

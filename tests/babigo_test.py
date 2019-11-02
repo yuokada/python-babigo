@@ -56,8 +56,8 @@ class TestBabigo(object):
         """ test_get_kana_sentence_01 """
         mk.return_value = (RES, CONTENT_3)
         babi = babigo.Babigo()
-        TEST_STRING = u'頑張ってくださいw'
-        EXPECT = u'がんばってくださいw'
+        TEST_STRING = '頑張ってくださいw'
+        EXPECT = 'がんばってくださいw'
         res = babi.get_kana_sentence(TEST_STRING)
         ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
@@ -67,16 +67,16 @@ class TestBabigo(object):
         """ test_get_kana_sentence_02 """
         mk.return_value = (RES_F, CONTENT_3)
         babi = babigo.Babigo()
-        TEST_STRING = u'頑張ってくださいw'
+        TEST_STRING = '頑張ってくださいw'
         EXPECT = False
         res = babi.get_kana_sentence(TEST_STRING)
         eq_(res, EXPECT)
 
     @patch.object(babigo.Babigo, 'get_kana_sentence')
     def test_translate_sentence2babigo_01(self, mk):
-        TEST_SENTENCE = u'頑張ってくださいw'
-        MOCK_VALUE = u'がんばってくださいw'
-        EXPECT = u'がばんばばってべくぶだばさばいびw'
+        TEST_SENTENCE = '頑張ってくださいw'
+        MOCK_VALUE = 'がんばってくださいw'
+        EXPECT = 'がばんばばってべくぶだばさばいびw'
         mk.return_value = MOCK_VALUE
         babi = babigo.Babigo()
         res = babi.translate_sentence2babigo(TEST_SENTENCE)
@@ -84,7 +84,7 @@ class TestBabigo(object):
 
     @patch.object(babigo.Babigo, 'get_kana_sentence')
     def test_translate_sentence2babigo_01(self, mk):
-        TEST_SENTENCE = u'頑張ってくださいw'
+        TEST_SENTENCE = '頑張ってくださいw'
         MOCK_VALUE = False
         EXPECT = False
         mk.return_value = MOCK_VALUE
@@ -95,8 +95,8 @@ class TestBabigo(object):
     def test__insert_babi_01(self):
         """test__insert_babi_01: 長いので分割 (1/2)"""
         babi = babigo.Babigo()
-        TEST_STRING = u'おはようございます。'
-        EXPECT = u'おぼはばよぼうぶごぼざばいびまばすぶ。'
+        TEST_STRING = 'おはようございます。'
+        EXPECT = 'おぼはばよぼうぶごぼざばいびまばすぶ。'
         res = babi._insert_babi(TEST_STRING)
         ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
@@ -104,8 +104,8 @@ class TestBabigo(object):
     def test__insert_babi_02(self):
         """test__insert_babi_02: 長いので分割 (2/2)"""
         babi = babigo.Babigo()
-        TEST_STRING = u'いいてんきですね。'
-        EXPECT = u'いびいびてべんきびでべすぶねべ。'
+        TEST_STRING = 'いいてんきですね。'
+        EXPECT = 'いびいびてべんきびでべすぶねべ。'
         res = babi._insert_babi(TEST_STRING)
         ok_(isinstance(res, string_types))
         eq_(res, EXPECT)
